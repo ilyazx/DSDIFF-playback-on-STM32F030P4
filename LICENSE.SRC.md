@@ -1,5 +1,5 @@
-***DFF (Direct Stream Digital Interchange File Format) playback implementeation on STM32F030F4P6.***
-***Copyright 2019 ILYA_ZX <ilya.zx@gmail.com>***
+***DFF (Direct Stream Digital Interchange File Format) playback implementeation on STM32F030F4P6.
+Copyright 2019 ILYA_ZX***
 
 License:
 Permission is hereby granted, free of charge, to any person obtaining a copy
