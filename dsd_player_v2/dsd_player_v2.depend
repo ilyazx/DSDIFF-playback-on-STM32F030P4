@@ -1,0 +1,527 @@
+# depslib dependency file v1.0
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_adc.c
+	"stm32f0xx_adc.h"
+	"stm32f0xx_rcc.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_adc.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\inc\stm32f0xx.h
+	"core_cm0.h"
+	"system_stm32f0xx.h"
+	<stdint.h>
+	"stm32f0xx_conf.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\cmsis\core_cm0.h
+	<stdint.h>
+	"core_cmInstr.h"
+	"core_cmFunc.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\cmsis\core_cminstr.h
+	<cmsis_iar.h>
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\cmsis\core_cmfunc.h
+	<cmsis_iar.h>
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\inc\system_stm32f0xx.h
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\inc\stm32f0xx_conf.h
+	"stm32f0xx_adc.h"
+	"stm32f0xx_can.h"
+	"stm32f0xx_cec.h"
+	"stm32f0xx_crc.h"
+	"stm32f0xx_crs.h"
+	"stm32f0xx_comp.h"
+	"stm32f0xx_dac.h"
+	"stm32f0xx_dbgmcu.h"
+	"stm32f0xx_dma.h"
+	"stm32f0xx_exti.h"
+	"stm32f0xx_flash.h"
+	"stm32f0xx_gpio.h"
+	"stm32f0xx_syscfg.h"
+	"stm32f0xx_i2c.h"
+	"stm32f0xx_iwdg.h"
+	"stm32f0xx_pwr.h"
+	"stm32f0xx_rcc.h"
+	"stm32f0xx_rtc.h"
+	"stm32f0xx_spi.h"
+	"stm32f0xx_tim.h"
+	"stm32f0xx_usart.h"
+	"stm32f0xx_wwdg.h"
+	"stm32f0xx_misc.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_can.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_cec.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_crc.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_crs.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_comp.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_dac.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_dbgmcu.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_dma.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_exti.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_flash.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_gpio.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_syscfg.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_i2c.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_iwdg.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_pwr.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_rcc.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_rtc.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_spi.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_tim.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_usart.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_wwdg.h
+	"stm32f0xx.h"
+
+1549964786 c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_misc.h
+	"stm32f0xx.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_can.c
+	"stm32f0xx_can.h"
+	"stm32f0xx_rcc.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_cec.c
+	"stm32f0xx_cec.h"
+	"stm32f0xx_rcc.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_comp.c
+	"stm32f0xx_comp.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_crc.c
+	"stm32f0xx_crc.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_crs.c
+	"stm32f0xx_crs.h"
+	"stm32f0xx_rcc.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_dac.c
+	"stm32f0xx_dac.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_dbgmcu.c
+	"stm32f0xx_dbgmcu.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_dma.c
+	"stm32f0xx_dma.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_exti.c
+	"stm32f0xx_exti.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_flash.c
+	"stm32f0xx_flash.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_gpio.c
+	"stm32f0xx_gpio.h"
+	"stm32f0xx_rcc.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_i2c.c
+	"stm32f0xx_i2c.h"
+	"stm32f0xx_rcc.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_iwdg.c
+	"stm32f0xx_iwdg.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_misc.c
+	"stm32f0xx_misc.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_pwr.c
+	"stm32f0xx_pwr.h"
+	"stm32f0xx_rcc.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_rcc.c
+	"stm32f0xx_rcc.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_rtc.c
+	"stm32f0xx_rtc.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_spi.c
+	"stm32f0xx_spi.h"
+	"stm32f0xx_rcc.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_syscfg.c
+	"stm32f0xx_syscfg.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_tim.c
+	"stm32f0xx_tim.h"
+	"stm32f0xx_rcc.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_usart.c
+	"stm32f0xx_usart.h"
+	"stm32f0xx_rcc.h"
+
+1549964786 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\spl\src\stm32f0xx_wwdg.c
+	"stm32f0xx_wwdg.h"
+	"stm32f0xx_rcc.h"
+
+1550481787 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\src\dsd.c
+	"stm32f0xx_conf.h"
+	"dsd.h"
+
+1550141626 c:\users\admin\desktop\dsd_player\dsd_player_v2\src\dsd.h
+
+1550487076 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\src\main.c
+	"stm32f0xx_conf.h"
+	"spi.h"
+	"sdcard.h"
+	"dsd.h"
+	"memcpy_dma.h"
+	"pff\diskio.h"
+	"pff\pff.h"
+	"string.h"
+
+1550160208 c:\users\admin\desktop\dsd_player\dsd_player_v2\src\spi.h
+	"stm32f0xx_conf.h"
+
+1549608820 c:\users\admin\desktop\dsd_player\dsd_player_v2\src\sd_card.h
+	"stm32f0xx_conf.h"
+	"spi.h"
+
+1550160249 c:\users\admin\desktop\dsd_player\dsd_player_v2\src\memcpy_dma.h
+
+1549609094 c:\users\admin\desktop\dsd_player\dsd_player_v2\src\pff\diskio.h
+	"pff.h"
+
+1549670298 c:\users\admin\desktop\dsd_player\dsd_player_v2\src\pff\pff.h
+	"pffconf.h"
+	<windows.h>
+	<stdint.h>
+
+1549519900 c:\users\admin\desktop\dsd_player\dsd_player_v2\src\pff\pffconf.h
+
+1550142028 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\src\memcpy_dma.c
+	"stm32f0xx_conf.h"
+	"memcpy_dma.h"
+
+1550483182 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\src\pff\diskio.c
+	"diskio.h"
+	"sdcard.h"
+	"stm32f0xx_conf.h"
+	"memcpy_dma.h"
+	<string.h>
+
+1549657994 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\src\pff\pff_cache.c
+	"pff.h"
+	"diskio.h"
+
+1549659420 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\src\sd_card.c
+	"sd_card.h"
+	"memcpy_dma.h"
+
+1550483298 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\src\spi.c
+	"spi.h"
+
+1550140592 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\src\startup_stm32f0xx.s
+
+1547817964 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\src\system_stm32f0xx.c
+	"stm32f0xx.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_adc.c
+	"stm32f0xx_adc.h"
+	"stm32f0xx_rcc.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_adc.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\inc\stm32f0xx.h
+	"core_cm0.h"
+	"system_stm32f0xx.h"
+	<stdint.h>
+	"stm32f0xx_conf.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\cmsis\core_cm0.h
+	<stdint.h>
+	"core_cmInstr.h"
+	"core_cmFunc.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\cmsis\core_cminstr.h
+	<cmsis_iar.h>
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\cmsis\core_cmfunc.h
+	<cmsis_iar.h>
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\inc\system_stm32f0xx.h
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\inc\stm32f0xx_conf.h
+	"stm32f0xx_adc.h"
+	"stm32f0xx_can.h"
+	"stm32f0xx_cec.h"
+	"stm32f0xx_crc.h"
+	"stm32f0xx_crs.h"
+	"stm32f0xx_comp.h"
+	"stm32f0xx_dac.h"
+	"stm32f0xx_dbgmcu.h"
+	"stm32f0xx_dma.h"
+	"stm32f0xx_exti.h"
+	"stm32f0xx_flash.h"
+	"stm32f0xx_gpio.h"
+	"stm32f0xx_syscfg.h"
+	"stm32f0xx_i2c.h"
+	"stm32f0xx_iwdg.h"
+	"stm32f0xx_pwr.h"
+	"stm32f0xx_rcc.h"
+	"stm32f0xx_rtc.h"
+	"stm32f0xx_spi.h"
+	"stm32f0xx_tim.h"
+	"stm32f0xx_usart.h"
+	"stm32f0xx_wwdg.h"
+	"stm32f0xx_misc.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_can.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_cec.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_crc.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_crs.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_comp.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_dac.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_dbgmcu.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_dma.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_exti.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_flash.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_gpio.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_syscfg.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_i2c.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_iwdg.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_pwr.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_rcc.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_rtc.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_spi.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_tim.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_usart.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_wwdg.h
+	"stm32f0xx.h"
+
+1549964786 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\inc\stm32f0xx_misc.h
+	"stm32f0xx.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_can.c
+	"stm32f0xx_can.h"
+	"stm32f0xx_rcc.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_cec.c
+	"stm32f0xx_cec.h"
+	"stm32f0xx_rcc.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_comp.c
+	"stm32f0xx_comp.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_crc.c
+	"stm32f0xx_crc.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_crs.c
+	"stm32f0xx_crs.h"
+	"stm32f0xx_rcc.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_dac.c
+	"stm32f0xx_dac.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_dbgmcu.c
+	"stm32f0xx_dbgmcu.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_dma.c
+	"stm32f0xx_dma.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_exti.c
+	"stm32f0xx_exti.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_flash.c
+	"stm32f0xx_flash.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_gpio.c
+	"stm32f0xx_gpio.h"
+	"stm32f0xx_rcc.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_i2c.c
+	"stm32f0xx_i2c.h"
+	"stm32f0xx_rcc.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_iwdg.c
+	"stm32f0xx_iwdg.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_misc.c
+	"stm32f0xx_misc.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_pwr.c
+	"stm32f0xx_pwr.h"
+	"stm32f0xx_rcc.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_rcc.c
+	"stm32f0xx_rcc.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_rtc.c
+	"stm32f0xx_rtc.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_spi.c
+	"stm32f0xx_spi.h"
+	"stm32f0xx_rcc.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_syscfg.c
+	"stm32f0xx_syscfg.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_tim.c
+	"stm32f0xx_tim.h"
+	"stm32f0xx_rcc.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_usart.c
+	"stm32f0xx_usart.h"
+	"stm32f0xx_rcc.h"
+
+1549964786 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\spl\src\stm32f0xx_wwdg.c
+	"stm32f0xx_wwdg.h"
+	"stm32f0xx_rcc.h"
+
+1550481788 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\src\dsd.c
+	"stm32f0xx_conf.h"
+	"dsd.h"
+
+1550141626 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\src\dsd.h
+
+1550487078 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\src\main.c
+	"stm32f0xx_conf.h"
+	"spi.h"
+	"sdcard.h"
+	"dsd.h"
+	"memcpy_dma.h"
+	"pff\diskio.h"
+	"pff\pff.h"
+	"string.h"
+
+1550160208 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\src\spi.h
+	"stm32f0xx_conf.h"
+
+1549608820 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\src\sd_card.h
+	"stm32f0xx_conf.h"
+	"spi.h"
+
+1550160250 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\src\memcpy_dma.h
+
+1549609094 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\src\pff\diskio.h
+	"pff.h"
+
+1549670298 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\src\pff\pff.h
+	"pffconf.h"
+	<windows.h>
+	<stdint.h>
+
+1549519900 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\src\pff\pffconf.h
+
+1550142028 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\src\memcpy_dma.c
+	"stm32f0xx_conf.h"
+	"memcpy_dma.h"
+
+1550483184 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\src\pff\diskio.c
+	"diskio.h"
+	"sdcard.h"
+	"stm32f0xx_conf.h"
+	"memcpy_dma.h"
+	<string.h>
+
+1549657994 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\src\pff\pff_cache.c
+	"pff.h"
+	"diskio.h"
+
+1549659420 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\src\sd_card.c
+	"sd_card.h"
+	"memcpy_dma.h"
+
+1550483300 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\src\spi.c
+	"spi.h"
+
+1550140592 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\src\startup_stm32f0xx.s
+
+1547817964 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\src\system_stm32f0xx.c
+	"stm32f0xx.h"
+
+1550483174 c:\users\admin\desktop\dsd_player\dsd_player_v2\src\sdcard.h
+	"stm32f0xx_conf.h"
+	"spi.h"
+
+1550483177 source:c:\users\admin\desktop\dsd_player\dsd_player_v2\src\sdcard.c
+	"sdcard.h"
+	"memcpy_dma.h"
+
+1550483176 f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\src\sdcard.h
+	"stm32f0xx_conf.h"
+	"spi.h"
+
+1550483178 source:f:\programming\stm32_projects\embitz\dsd_player\dsd_player_v2\src\sdcard.c
+	"sdcard.h"
+	"memcpy_dma.h"
+
