@@ -43,7 +43,7 @@ void Init_GPIO()
     //GPIO_Speed_50MHz;
     GPIOA->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR5_1 | GPIO_OSPEEDER_OSPEEDR6_1 |
                    GPIO_OSPEEDER_OSPEEDR7_1 ;
-    //Pins pulled up
+    //Pins is pulled up
     GPIOA->PUPDR =  GPIO_PUPDR_PUPDR5_0 | GPIO_PUPDR_PUPDR6_0 |
                    GPIO_PUPDR_PUPDR7_0 ;
     /* PB1 - CS - Out, PP, 50Mhz, NoPull  */
@@ -59,7 +59,7 @@ void Init_GPIO()
     //GPIO_Speed_50MHz;
     GPIOA->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR9_1 | GPIO_OSPEEDER_OSPEEDR10_1;
 
-    //Pins pulled up
+    //Pins is pulled up
     GPIOA->PUPDR = GPIO_PUPDR_PUPDR4_0 | GPIO_PUPDR_PUPDR9_0 | GPIO_PUPDR_PUPDR10_1;
 }
 
