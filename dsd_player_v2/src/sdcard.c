@@ -6,39 +6,37 @@ uint32_t sd_current_sector=-1;
 uint32_t sd_data_wait_counter;
 tsdReadSectorCallBack sd_rs_callback=0;
 volatile uint8_t sdcard_busy=0;
-//глобальная переменная для определения типа карты
+//Type of the sd card
 uint8_t  sdhc;
 
 uint8_t SD_SendCmd(uint8_t cmd, uint32_t arg)
 {
-    uint8_t response, wait=0, tmp;
+    uint8_t response, wait=0;
 
     if(!sdhc && (cmd == SD_READ_MULTIPLE_BLOCK ))
-            arg = arg << 9; //Addres fix for SD
+            arg = arg << 9; //Address fix for SD
 
-
-    //Command
+    //Send command
     SPI_Send(cmd | 0x40);
     SPI_Send(arg>>24);
     SPI_Send(arg>>16);
     SPI_Send(arg>>8);
     SPI_Send(arg);
 
-    //CRC
+    //Send CRC
     if(cmd == SD_SEND_IF_COND)
         SPI_Send(0x87);
     else
         SPI_Send(0x95);
 
-    //ожидаем ответ
+    //Wait for the responce
     while(((response = SPI_Read()) & 0x7f)==0x7f)
-        if(wait++ > 64) break;                //таймаут, не получили ответ на команду
+        if(wait++ > 64) break;
 
-    //проверка ответа если посылалась команда READ_OCR
-    if(response == 0x00 && cmd == 58)
+    //Check the responce if command is SD_READ_OCR
+    if(response == 0x00 && cmd == SD_READ_OCR)
     {
-        tmp = SPI_Read();                      //прочитать один байт регистра OCR
-        if(tmp & 0x40) sdhc = 1; //Card is SDHC
+        if(SPI_Read() & 0x40) sdhc = 1; //Card is SDHC
         else           sdhc = 0; //Card is SD
 
         SPI_Read();
@@ -47,7 +45,6 @@ uint8_t SD_SendCmd(uint8_t cmd, uint32_t arg)
     }
 
     SPI_Read();
-
     return response;
 }
 
@@ -120,7 +117,6 @@ void SPI_CallBack_WaitForDataMarker(void *data_ptr)
     {
         if(!(sd_data_wait_counter--)) NVIC_SystemReset();
         SPI_ReadViaDMA((void*)DMA1_Channel2->CMAR,1,SPI_CallBack_WaitForDataMarker);
-
     }
 
 }
