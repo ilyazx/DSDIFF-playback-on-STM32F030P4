@@ -1,0 +1,6 @@
+*.map
+*.[do]
+*.elf
+*.elay
+*.hex
+*.depend
