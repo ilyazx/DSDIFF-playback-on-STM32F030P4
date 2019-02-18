@@ -91,7 +91,6 @@ uint8_t Parse_DFF(dsf_info_t *di)
     uint32_t temp,file_pointer=16;
     uint32_t chSize; /* To do. Files large than 4GB not supported */
     pf_lseek(0);
-
     temp=0;
     pf_read(&temp,4,&dwBytesRead);
     if(temp != *(uint32_t*)"FRM8")return(1);
