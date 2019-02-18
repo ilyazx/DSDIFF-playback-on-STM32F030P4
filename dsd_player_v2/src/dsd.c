@@ -53,6 +53,17 @@ uint8_t *DSD_WriteHigh_msb(uint8_t * buf)
 
 void DSD_Init(uint8_t *read_buffer, uint32_t read_buffer_size)
 {
+    /* Enable the GPIOA clock */
+    RCC->AHBENR |= RCC_AHBENR_GPIOAEN;
+    /* PA9/PA10 = Mode_AF, TIM1_CH2/TIM1_CH3 */
+    GPIOA->MODER |= GPIO_MODER_MODER9_1 | GPIO_MODER_MODER10_1;
+    /* PA9/PA10 = Mode_AF_2 */
+    GPIOA->AFR[1]  |= (GPIO_AF_2 << (4*(9-8))) | (GPIO_AF_2 << (4*(10-8)));
+    /* PA9/PA10 GPIO_Speed_50MHz */
+    GPIOA->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR9_1 | GPIO_OSPEEDER_OSPEEDR10_1;
+    /* Pins is pulled up */
+    GPIOA->PUPDR |= GPIO_PUPDR_PUPDR4_0 | GPIO_PUPDR_PUPDR9_0 ;
+
     /* Enable TIM17 unit */
     RCC->APB2ENR |= RCC_APB2ENR_TIM17EN;
     /* Reset counter */

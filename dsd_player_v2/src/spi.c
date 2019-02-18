@@ -8,13 +8,29 @@ volatile uint8_t spi_read_temp;
 
 void SPI_Init_()
 {
-    CS_DISABLE;
+    /* Enable GPIO clock */
+    RCC->AHBENR |= RCC_AHBENR_GPIOAEN;
+    RCC->AHBENR |= RCC_AHBENR_GPIOBEN;
+    /* PA5/PA6/PA7 = Mode_AF, SCK/MISO/MOSI */
+    GPIOA->MODER |= GPIO_MODER_MODER5_1 | GPIO_MODER_MODER6_1 |
+                    GPIO_MODER_MODER7_1;
+    /* GPIO_Speed_50MHz */
+    GPIOA->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR5_1 | GPIO_OSPEEDER_OSPEEDR6_1 |
+                   GPIO_OSPEEDER_OSPEEDR7_1 ;
+    /* Pins is pulled up */
+    GPIOA->PUPDR |=  GPIO_PUPDR_PUPDR5_0 | GPIO_PUPDR_PUPDR6_0 |
+                   GPIO_PUPDR_PUPDR7_0 ;
+    /* PB1 = Mode_Out, CS */
+    GPIOB->MODER |= GPIO_MODER_MODER1_0;
+    /* GPIO_Speed_50MHz */
+    GPIOB->OSPEEDR|=GPIO_OSPEEDER_OSPEEDR1_1;
+    /* Enable the SPI1 */
     RCC->APB2ENR |= RCC_APB2ENR_SPI1EN ;
-    //Data size 8 bit, DMA TX RX requests enable
+    /* Data size 8 bit, DMA TX RX requests enable */
     SPI1->CR2 = (7<<8) | SPI_CR2_TXDMAEN | SPI_CR2_RXDMAEN;
     /* SPI FIFO 8 bit */
     SPI_RxFIFOThresholdConfig(SPI1,SPI_RxFIFOThreshold_QF);
-    //Master, internal slave select, Soft NSS, SPI enable
+    /* Master, internal slave select, Soft NSS, SPI enable */
     SPI1->CR1 |= SPI_CR1_MSTR | SPI_CR1_SSI | SPI_CR1_SSM | SPI_CR1_SPE;
 }
 
@@ -28,13 +44,13 @@ void SPI_DMAInit(void)
     SPI1->CR1 &= ~SPI_CR1_SPE;
 
     /* DMA channel 3 - SPI TX */
-    // PerDst, (PrioLow)
+    /* PerDst, (PrioLow) */
     DMA1_Channel3->CCR = DMA_CCR_DIR  ;
     DMA1_Channel3->CPAR =(uint32_t)&(SPI1->DR);
     DMA1_Channel3->CMAR=(uint32_t)&dma_FFFF;
 
     /* DMA channel 2 - SPI RX */
-    // MemInc, TC int en. (PrioLow)
+    /* MemInc, TC int en. (PrioLow) */
     DMA1_Channel2->CCR = DMA_CCR_MINC | DMA_CCR_TCIE ;
     DMA1_Channel2->CPAR =(uint32_t)&(SPI1->DR);
 
@@ -76,7 +92,7 @@ uint8_t SPI_Read (void)
     /* Wait for data receive */
     while (!(SPI1->SR & SPI_SR_RXNE));
     result=*((volatile uint8_t*)&SPI1->DR);
-    return (result);		  //читаем принятые данные
+    return (result);
 }
 
 void SPI_ReadViaDMA(void *pBuf,uint16_t data_size, spiCallBack pCallBack)

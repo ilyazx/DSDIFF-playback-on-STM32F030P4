@@ -34,33 +34,10 @@ uint8_t *sdcard_read_buffer_hi=&sdcard_read_buffer[SDCARD_READ_BUFFER_SIZE/2];
 
 void Init_GPIO()
 {
-    /* Enable GPIO clock */
+    /* Enable the GPIOA clock */
     RCC->AHBENR |= RCC_AHBENR_GPIOAEN;
-    RCC->AHBENR |= RCC_AHBENR_GPIOBEN;
-    /* AF, PA5 - CS, PA6 - MISO, PA7 - MOSI */
-    GPIOA->MODER |= GPIO_MODER_MODER5_1 | GPIO_MODER_MODER6_1 |
-                    GPIO_MODER_MODER7_1;
-    //GPIO_Speed_50MHz;
-    GPIOA->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR5_1 | GPIO_OSPEEDER_OSPEEDR6_1 |
-                   GPIO_OSPEEDER_OSPEEDR7_1 ;
-    //Pins is pulled up
-    GPIOA->PUPDR =  GPIO_PUPDR_PUPDR5_0 | GPIO_PUPDR_PUPDR6_0 |
-                   GPIO_PUPDR_PUPDR7_0 ;
-    /* PB1 - CS - Out, PP, 50Mhz, NoPull  */
-    //Mode - output, CS
-    GPIOB->MODER |= GPIO_MODER_MODER1_0;
-    //GPIOB->OTYPER pull push by default
-    GPIOB->OSPEEDR=GPIO_OSPEEDER_OSPEEDR1_1;
-
-    //AF, PA9 - TIM1_CH2, PA10 - TIM1_CH3 */
-    GPIOA->MODER |= GPIO_MODER_MODER9_1 | GPIO_MODER_MODER10_1;
-    // PA9,PA10 - MODE AF_2
-    GPIOA->AFR[1]  |= (GPIO_AF_2 << (4*(9-8))) | (GPIO_AF_2 << (4*(10-8)));
-    //GPIO_Speed_50MHz;
-    GPIOA->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR9_1 | GPIO_OSPEEDER_OSPEEDR10_1;
-
-    //Pins is pulled up
-    GPIOA->PUPDR = GPIO_PUPDR_PUPDR4_0 | GPIO_PUPDR_PUPDR9_0 | GPIO_PUPDR_PUPDR10_1;
+    /* Pin PA10 is pulled up (button) */
+    GPIOA->PUPDR |= GPIO_PUPDR_PUPDR4_0 | GPIO_PUPDR_PUPDR9_0 | GPIO_PUPDR_PUPDR10_1;
 }
 
 void Clocks_Init()
@@ -91,6 +68,7 @@ uint8_t Parse_DFF(dsf_info_t *di)
     uint32_t temp,file_pointer=16;
     uint32_t chSize; /* To do. Files large than 4GB not supported */
     pf_lseek(0);
+
     temp=0;
     pf_read(&temp,4,&dwBytesRead);
     if(temp != *(uint32_t*)"FRM8")return(1);
@@ -201,7 +179,7 @@ uint8_t Process_Dirs()
         if(result)return(PD_NEXT_FILE); //Error open file, skip
     if(!Parse_DFF(&di))
         DSD_Reconfigure(&di);
-    else //Error or file isn't dff
+    else //error or file isn't dff
         return(PD_NEXT_FILE);
 
     return(PD_PLAY);
