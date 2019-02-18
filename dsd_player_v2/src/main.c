@@ -202,7 +202,7 @@ uint8_t Process_Dirs()
         if(result)return(PD_NEXT_FILE); //Error open file, skip
     if(!Parse_DFF(&di))
         DSD_Reconfigure(&di);
-    else //error or file isn't dff
+    else //Error or file isn't dff
         return(PD_NEXT_FILE);
 
     return(PD_PLAY);
