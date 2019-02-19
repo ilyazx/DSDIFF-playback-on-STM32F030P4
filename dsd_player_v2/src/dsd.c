@@ -72,8 +72,8 @@ void DSD_Init(uint8_t *read_buffer, uint32_t read_buffer_size)
     TIM17->ARR=TIMERS_PERIOD;
     /* DMA requests sent when update event occurs */
     TIM17->CR2|=TIM_CR2_CCDS;
-    /* Delay before start of TIM1 for DMA channels 1-5 synchronisation */
-    TIM17->CCR1 = 2;
+    /* Delay before start of the TIM1 for the DMA channels 1-5 synchronisation */
+    TIM17->CCR1 = 1;
     /*  PWM mode 2 - In upcounting, channel 1 is inactive as long as
     TIMx_CNT<TIMx_CCR1 else active */
     TIM17->CCMR1 |= TIM_CCMR1_OC1M_2 | TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_0;
@@ -126,7 +126,7 @@ void DSD_Init(uint8_t *read_buffer, uint32_t read_buffer_size)
     TIM1->CCMR2 |= TIM_CCMR2_OC3M_2 | TIM_CCMR2_OC3M_1 | TIM_CCMR2_OC3M_0
                    | TIM_CCMR2_OC3PE;
     /* Enable OC2,OC3 outputs, active level high */
-    TIM1->CCER |= TIM_CCER_CC2E | TIM_CCER_CC2P | TIM_CCER_CC3E | TIM_CCER_CC3P;
+    TIM1->CCER |= TIM_CCER_CC2E  | TIM_CCER_CC3E ;
     /* Main output enable */
     TIM1->BDTR |= TIM_BDTR_MOE;
     /* Enable TIM1 DMA interface */
