@@ -73,12 +73,12 @@ void DSD_Init(uint8_t *read_buffer, uint32_t read_buffer_size)
     /* DMA requests sent when update event occurs */
     TIM17->CR2|=TIM_CR2_CCDS;
     /* Delay before start of TIM1 for DMA channels 1-5 synchronisation */
-    TIM17->CCR1 = 3;
+    TIM17->CCR1 = 2;
     /*  PWM mode 2 - In upcounting, channel 1 is inactive as long as
     TIMx_CNT<TIMx_CCR1 else active */
     TIM17->CCMR1 |= TIM_CCMR1_OC1M_2 | TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_0;
-    /* Capture/Compare 1 output enable */
-    TIM17->CCER |= TIM_CCER_CC1E;
+    /* Capture/Compare 1 output enable, active level high */
+    TIM17->CCER |= TIM_CCER_CC1E | TIM_CCER_CC1P ;
     /* Main output enable */
     TIM17->BDTR |= TIM_BDTR_MOE;
     /* Enable TIM17 DMA interface */
@@ -118,14 +118,14 @@ void DSD_Init(uint8_t *read_buffer, uint32_t read_buffer_size)
     /* Reset counter */
     TIM1->CNT=0;
      /*  OC2: PWM mode 2 - In upcounting, channel 1 is inactive as long as
-    TIMx_CNT<TIMx_CCR else active, preload enable (dat sync)*/
+    TIMx_CNT<TIMx_CCR else active. Preload enable */
     TIM1->CCMR1 |= TIM_CCMR1_OC2M_2 | TIM_CCMR1_OC2M_1 | TIM_CCMR1_OC2M_0
                    | TIM_CCMR1_OC2PE;
     /*  OC2: PWM mode 2 - In upcounting, channel 1 is inactive as long as
-    TIMx_CNT<TIMx_CCR else active preload enable (dat sync) */
-    TIM1->CCMR2 |= TIM_CCMR2_OC3M_2 | TIM_CCMR2_OC3M_1 | TIM_CCMR2_OC3M_1
+    TIMx_CNT<TIMx_CCR else active. Preload enable */
+    TIM1->CCMR2 |= TIM_CCMR2_OC3M_2 | TIM_CCMR2_OC3M_1 | TIM_CCMR2_OC3M_0
                    | TIM_CCMR2_OC3PE;
-    /* Enable OC2,OC3 outputs, polarity P */
+    /* Enable OC2,OC3 outputs, active level high */
     TIM1->CCER |= TIM_CCER_CC2E | TIM_CCER_CC2P | TIM_CCER_CC3E | TIM_CCER_CC3P;
     /* Main output enable */
     TIM1->BDTR |= TIM_BDTR_MOE;
