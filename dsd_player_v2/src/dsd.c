@@ -53,7 +53,7 @@ uint8_t *DSD_WriteHigh_msb(uint8_t * buf)
 
 void DSD_Init(uint8_t *read_buffer, uint32_t read_buffer_size)
 {
-    /* Enable the GPIOA clock */
+    /* GPIOA clock enable */
     RCC->AHBENR |= RCC_AHBENR_GPIOAEN;
     /* PA9/PA10 = Mode_AF, TIM1_CH2/TIM1_CH3 */
     GPIOA->MODER |= GPIO_MODER_MODER9_1 | GPIO_MODER_MODER10_1;
@@ -64,39 +64,44 @@ void DSD_Init(uint8_t *read_buffer, uint32_t read_buffer_size)
     /* Pins is pulled up */
     GPIOA->PUPDR |= GPIO_PUPDR_PUPDR4_0 | GPIO_PUPDR_PUPDR9_0 ;
 
-    /* Enable TIM17 unit */
+    /* TIM17 clock enable */
     RCC->APB2ENR |= RCC_APB2ENR_TIM17EN;
-    /* Reset counter */
-    TIM17->CNT=0;
     /* TIM17 period */
     TIM17->ARR=TIMERS_PERIOD;
-    /* DMA requests sent when update event occurs */
+    TIM17->CNT=0;
+    /* 1: CCx DMA requests sent when update event occurs */
     TIM17->CR2|=TIM_CR2_CCDS;
-    /* Delay before start of the TIM1 for the DMA channels 1-5 synchronisation */
-    TIM17->CCR1 = 1;
-    /*  PWM mode 2 - In upcounting, channel 1 is inactive as long as
-    TIMx_CNT<TIMx_CCR1 else active */
-    TIM17->CCMR1 |= TIM_CCMR1_OC1M_2 | TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_0;
-    /* Capture/Compare 1 output enable, active level high */
-    TIM17->CCER |= TIM_CCER_CC1E | TIM_CCER_CC1P ;
+    /** The OC1 output of the TIM17 is used to reset the TIM1
+    for delay between the transactions DMA channels 1 and 5,
+    otherwise the transactions can interfere with each other
+    due to lack of system resources when shared access occurs.
+    Reset occurs after two counts (2 clocks of the AHB clock in this case)
+    of the TIM1 after the TIM17_OC1 rising edge occurs.*/
+    TIM17->CCR1 = 2; //Delay 4 clocks
+    /*  PWM mode 2 - Active = (TIMx_CNT>=TIMx_CCR1) */
+    TIM17->CCMR1 |= TIM_CCMR1_OC1M ;
+    /* CC1 output enable, active level is high (CC1P=0)*/
+    TIM17->CCER |= TIM_CCER_CC1E ;
     /* Main output enable */
     TIM17->BDTR |= TIM_BDTR_MOE;
     /* Enable TIM17 DMA interface */
     TIM17->DIER =  TIM_DIER_UDE;
+    /* Only counter overflow generates an update interrupt or DMA request. */
+    TIM17->CR1 |= TIM_CR1_URS;
 
-    /* Enable DMA1 unit */
+    /* DMA1 enable */
     RCC->AHBENR|= RCC_AHBENR_DMA1EN;
-    /* Configure DMA channel 1 - TIM17_UP */
+    /* DMA channel 1 configuration */
     DMA1_Channel1->CPAR =(uint32_t)&TIM1->CCR3; ;
     DMA1_Channel1->CMAR=(uint32_t)dsd_dma_buffer_hi;
     DMA1_Channel1->CNDTR=sizeof(dsd_dma_buffer)/2;
     // PerDst, MemInc, CircEn, PrioVH, PerSize = 16 bit
     DMA1_Channel1->CCR=DMA_CCR_DIR | DMA_CCR_MINC | DMA_CCR_CIRC | DMA_CCR_PL
                        | DMA_CCR_PSIZE_0 ;
-    /* Enable DMA channel 1 */
+    /* DMA channel 1 enable */
     DMA1_Channel1->CCR|=DMA_CCR_EN ;
 
-    /* Enable TIM1 unit */
+    /* TIM1 clock enable */
     RCC->APB2ENR |= RCC_APB2ENR_TIM1EN;
     /* Configure DMA channel 5 */
     DMA1_Channel5->CPAR =(uint32_t)&TIM1->CCR2;
@@ -105,9 +110,8 @@ void DSD_Init(uint8_t *read_buffer, uint32_t read_buffer_size)
     // PerDst, MemInc, CircEn, PrioVH, HTIE,TCIE, PerSize = 16 bit
     DMA1_Channel5->CCR=DMA_CCR_DIR | DMA_CCR_MINC | DMA_CCR_CIRC | DMA_CCR_PL
                        | DMA_CCR_HTIE | DMA_CCR_TCIE | DMA_CCR_PSIZE_0 ;
-    /* Enable DMA channel 5 */
+    /* DMA channel 5 enable */
     DMA1_Channel5->CCR|=DMA_CCR_EN ;
-
     /* Enable DMA IRQ */
     NVIC_EnableIRQ(DMA1_Channel4_5_IRQn);
     /* IRQ priority VERY HIGH */
@@ -115,31 +119,23 @@ void DSD_Init(uint8_t *read_buffer, uint32_t read_buffer_size)
 
     /* TIM1 period */
     TIM1->ARR=TIMERS_PERIOD;
-    /* Reset counter */
     TIM1->CNT=0;
-     /*  OC2: PWM mode 2 - In upcounting, channel 1 is inactive as long as
-    TIMx_CNT<TIMx_CCR else active. Preload enable */
-    TIM1->CCMR1 |= TIM_CCMR1_OC2M_2 | TIM_CCMR1_OC2M_1 | TIM_CCMR1_OC2M_0
-                   | TIM_CCMR1_OC2PE;
-    /*  OC2: PWM mode 2 - In upcounting, channel 1 is inactive as long as
-    TIMx_CNT<TIMx_CCR else active. Preload enable */
-    TIM1->CCMR2 |= TIM_CCMR2_OC3M_2 | TIM_CCMR2_OC3M_1 | TIM_CCMR2_OC3M_0
-                   | TIM_CCMR2_OC3PE;
-    /* Enable OC2,OC3 outputs, active level high */
-    TIM1->CCER |= TIM_CCER_CC2E  | TIM_CCER_CC3E ;
+    /*  PWM mode 1 - Active = (TIMx_CNT<TIMx_CCR1). Preload enable */
+    TIM1->CCMR1 = TIM_CCMR1_OC2M_1 | TIM_CCMR1_OC2M_2 | TIM_CCMR1_OC2PE;
+    /*  PWM mode 1 - Active = (TIMx_CNT<TIMx_CCR1) Preload enable */
+    TIM1->CCMR2 = TIM_CCMR2_OC3M_1 | TIM_CCMR2_OC3M_2 | TIM_CCMR2_OC3PE;
+    /* OC2,OC3 enable, CCxP = 0: OCx active high */
+    TIM1->CCER = TIM_CCER_CC2E | TIM_CCER_CC3E ;
     /* Main output enable */
-    TIM1->BDTR |= TIM_BDTR_MOE;
-    /* Enable TIM1 DMA interface */
+    TIM1->BDTR = TIM_BDTR_MOE;
+    /* TIM1 DMA interface enable */
     TIM1->DIER =  TIM_DIER_UDE;
-    /* TIM1 - slave,trigger soure=ITDR3=TIM17_OC, reset mode */
-    TIM1->SMCR=TIM_SMCR_TS_0 | TIM_SMCR_TS_1 |
-                TIM_SMCR_SMS_2 ;
-    /* Only counter overflow generates an update interrupt or DMA request. */
-    //TIM1->CR1 |= TIM_CR1_URS;
+    /* TIM1 is slave, TS=ITDR3=TIM17_OC, SMS=reset mode */
+    TIM1->SMCR=TIM_SMCR_TS_0 | TIM_SMCR_TS_1 | TIM_SMCR_SMS_2 ;
 
-    /* Timer17  counter enable - master, OC output */
+    /* TIM17 enable */
     TIM17->CR1 |= TIM_CR1_CEN;
-    /* Main output enable for trigger TIM1 - slave*/
+    /* TIM1 enable*/
     TIM1->CR1 |= TIM_CR1_CEN;
 
     dsd_read_buffer_low=dsd_buffer_read_ptr=read_buffer;
