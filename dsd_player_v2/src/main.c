@@ -140,7 +140,8 @@ void Path_GoBack(char *path,char *removed_name)
 {
     int i=strlen(path);
     while((path[i] != '/') && i) i--;
-    if(removed_name)strcpy(removed_name,&path[i]);
+    if(removed_name)
+        strcpy(removed_name,&path[(i==0) ? i : i+1]);
     path[i]=0;
 }
 
@@ -148,8 +149,9 @@ uint8_t Process_Dirs()
 {
     int result;
     dsf_info_t di;
-    pf_readdir(&dir, &fno);
     char dir_name[12];
+
+    pf_readdir(&dir, &fno);
 
     if(!fno.fname[0]) //End of directory
     {
@@ -161,7 +163,7 @@ uint8_t Process_Dirs()
             /* Separate current dir name and path */
             Path_GoBack(current_dir_path,dir_name);
             pf_opendir(&dir,current_dir_path);
-            /* Find directory que foi */
+            /* Find directory */
             do pf_readdir(&dir, &fno);
             while(strcmp(fno.fname,dir_name));
         }
