@@ -1,5 +1,4 @@
 
-#include "stm32f0xx_conf.h"
 #include "dsd.h"
 
 /* Period=(48000000/2822400)-1, for DSD64 */
@@ -154,7 +153,7 @@ uint8_t DSD_Reconfigure(dsf_info_t *di)
     /* Reset SPI divider to 4 */
     SPI1->CR1 &= ~(SPI_CR1_BR_0|SPI_CR1_BR_1|SPI_CR1_BR_2);
     /* Switch PCLK to HSI */
-    RCC_SYSCLKConfig(RCC_SYSCLKSource_HSI);
+    RCC->CFGR = (RCC->CFGR & ~RCC_CFGR_SW) | RCC_CFGR_SW_HSI;
     /* Disable PLL */
     RCC->CR &=~ RCC_CR_PLLON;
     if(di->sample_rate == 5644800)
@@ -163,10 +162,10 @@ uint8_t DSD_Reconfigure(dsf_info_t *di)
         /* Set SPI divider to 4 */
         //SPI1->CR1 |= SPI_CR1_BR_1;
         /* Overclock!!! */
-        //RCC_PLLConfig(RCC_PLLSource_HSE, RCC_PLLMul_6);
+        // RCC->CFGR |= RCC_CFGR_PLLSRC_HSE_PREDIV | RCC_CFGR_PLLMUL12;
     }
     else
-        RCC_PLLConfig(RCC_PLLSource_HSE, RCC_PLLMul_6);
+         RCC->CFGR |= RCC_CFGR_PLLSRC_HSE_PREDIV | RCC_CFGR_PLLMUL6;
 
     /* Enable PLL: once the PLL is ready the PLLRDY */
     RCC->CR |= RCC_CR_PLLON;
@@ -174,7 +173,7 @@ uint8_t DSD_Reconfigure(dsf_info_t *di)
     while (!(RCC->CR & RCC_CR_PLLRDY));
     /* SPI enable */
     SPI1->CR1 |= SPI_CR1_SPE;
-    RCC_SYSCLKConfig(RCC_SYSCLKSource_PLLCLK);
+    RCC->CFGR = (RCC->CFGR & ~RCC_CFGR_SW) | RCC_CFGR_SW_PLL;
     return(0);
 }
 

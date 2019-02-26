@@ -1,7 +1,7 @@
 
 #include "spi.h"
 
-//переменная для передачи DMA 0xFFFF
+//Tx DMA var
 const uint32_t dma_FFFF=0xFFFF;
 spiCallBack spi_current_callback_function;
 volatile uint8_t spi_read_temp;
@@ -29,7 +29,7 @@ void SPI_Init_()
     /* Data size 8 bit, DMA TX RX requests enable */
     SPI1->CR2 = (7<<8) | SPI_CR2_TXDMAEN | SPI_CR2_RXDMAEN;
     /* SPI FIFO 8 bit */
-    SPI_RxFIFOThresholdConfig(SPI1,SPI_RxFIFOThreshold_QF);
+    SPI1->CR2 |= SPI_CR2_FRXTH;
     /* Master, internal slave select, Soft NSS, SPI enable */
     SPI1->CR1 |= SPI_CR1_MSTR | SPI_CR1_SSI | SPI_CR1_SSM | SPI_CR1_SPE;
 }

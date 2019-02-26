@@ -1,7 +1,6 @@
 #ifndef __SD_CARD_H
 #define __SD_CARD_H
 
-#include "stm32f0xx_conf.h"
 #include "spi.h"
 
 uint8_t SD_Init(void);

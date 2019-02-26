@@ -5,7 +5,6 @@
 **
 **********************************************************************/
 
-#include "stm32f0xx_conf.h"
 #include "spi.h"
 #include "sdcard.h"
 #include "dsd.h"
@@ -46,10 +45,10 @@ void Clocks_Init()
     /* Enable HSE */
     RCC->CR |= RCC_CR_HSEON;
     while(!(RCC->CR | RCC_CR_HSERDY) && timeout) timeout--;
-    if(timeout) //HSE OK
-        RCC_PLLConfig(RCC_PLLSource_HSE, RCC_PLLMul_6);
-    else //HSE NOT WORK
-        RCC_PLLConfig(RCC_PLLSource_HSI, RCC_PLLMul_12);
+    if(timeout) //HSE is ready
+        RCC->CFGR |= RCC_CFGR_PLLSRC_HSE_PREDIV | RCC_CFGR_PLLMUL6;
+    else //HSE is not ready
+        RCC->CFGR |= RCC_CFGR_PLLSRC_HSI_PREDIV | RCC_CFGR_PLLMUL12;
     /* Enable PLL: once the PLL is ready the PLLRDY */
     RCC->CR |= RCC_CR_PLLON;
     /* Wait till PLL is ready */
@@ -57,9 +56,9 @@ void Clocks_Init()
     while (!(RCC->CR & RCC_CR_PLLRDY) && timeout) timeout--;
     if(timeout)
         /* Select PLL as system clock source */
-        RCC_SYSCLKConfig(RCC_SYSCLKSource_PLLCLK);
+        RCC->CFGR = (RCC->CFGR & ~RCC_CFGR_SW) | RCC_CFGR_SW_PLL;
     else
-        RCC_SYSCLKConfig(RCC_SYSCLKSource_HSI);
+        RCC->CFGR = (RCC->CFGR & ~RCC_CFGR_SW) | RCC_CFGR_SW_HSI;
 }
 
 /* Reads dff file and writes data to dsf_info_t struct */

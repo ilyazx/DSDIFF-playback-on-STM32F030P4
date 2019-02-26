@@ -1,6 +1,8 @@
 #ifndef __DMA_MEMCPY_
 #define __DMA_MEMCPY_
 
+#include "stm32f0xx_conf.h"
+
 void memcpy_dma(void *dest, void *src, uint32_t size_bytes);
 
 void memcpy_dma_sync(void *dest, void *src, uint32_t size_bytes);

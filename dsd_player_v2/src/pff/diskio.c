@@ -4,7 +4,6 @@
 
 #include "diskio.h"
 #include "sdcard.h"
-#include "stm32f0xx_conf.h"
 #include "memcpy_dma.h"
 #include <string.h>
 

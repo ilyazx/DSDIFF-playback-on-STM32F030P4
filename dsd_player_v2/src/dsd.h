@@ -1,6 +1,8 @@
 #ifndef __DSD_H
 #define __DSD_H
 
+#include "stm32f0xx_conf.h"
+
 typedef struct
 {
     uint32_t sample_rate;

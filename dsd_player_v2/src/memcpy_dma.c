@@ -1,5 +1,4 @@
 
-#include "stm32f0xx_conf.h"
 #include "memcpy_dma.h"
 
 void memcpy_dma(void *dest, void *src, uint32_t size_bytes)
